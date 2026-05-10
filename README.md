@@ -1,6 +1,6 @@
 # My Personal Portfolio
 
-Perkenalkan nama saya Ibnu Batutah dan selamat datang di website portofolio saya! Website ini adalah tempat saya memamerkan hasil karya dan pengalaman di dunia pengembangan web.
+Perkenalkan nama saya Ibnu Batutah dan selamat datang di website portofolio saya, Website ini adalah tempat saya memamerkan hasil karya dan pengalaman di dunia pengembangan web.
 
 ## Teknologi & Keahlian Teknis
 
