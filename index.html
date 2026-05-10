@@ -1,0 +1,1802 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ibnu Batutah",
+        "jobTitle": "Fullstack Developer",
+        "url": "https://ibnubatutah.github.io",
+        "sameAs": ["https://linkedin.com", "https://github.com"],
+        "knowsAbout": [
+          "Web Development",
+          "PHP",
+          "Vue JS",
+          "React JS",
+          "System Architecture"
+        ]
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ibnu Batutah | Fullstack Developer & Web Architect Portfolio</title>
+    <meta
+      name="title"
+      content="Ibnu Batutah | Fullstack Developer & Web Architect Portfolio"
+    />
+    <meta
+      name="description"
+      content="Portfolio Ibnu Batutah, Fullstack Developer spesialis PHP Native, Vue JS, dan React JS. Berpengalaman membangun sistem e-commerce dan arsitektur web yang scalable."
+    />
+    <meta
+      name="keywords"
+      content="Ibnu Batutah, Fullstack Developer, Web Architect, Portfolio Developer, PHP Native, Vue JS, React JS, Software Engineer Indonesia"
+    />
+    <meta name="author" content="Ibnu Batutah" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ibnubatutah.github.io" />
+    <meta
+      property="og:title"
+      content="Ibnu Batutah | Professional Fullstack Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Eksplorasi proyek pengembangan web dan solusi arsitektur digital oleh Ibnu Batutah."
+    />
+    <meta
+      property="og:image"
+      content="https://ibnubatutah.github.io/images/og-image.jpg"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:title"
+      content="Ibnu Batutah | Fullstack Developer Portfolio"
+    />
+    <meta
+      property="twitter:description"
+      content="Spesialis Web Architecture & Scalable Systems."
+    />
+    <meta
+      property="twitter:image"
+      content="https://ibnubatutah.github.io/images/og-image.jpg"
+    />
+    <link rel="icon" type="image/png" sizes="16x16" href="ibnu_16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="ibnu_32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="ibnu_48x48.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="ibnu_64x64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="shortcut icon" href="ibnu.ico" type="image/x-icon" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://ibnubatutah.github.io" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      :root {
+        --white: #ffffff;
+        --black: #000000;
+        --gray: #888888;
+        --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .site-header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        transition: var(--transition);
+        background: transparent;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .site-header.scrolled,
+      .site-header.active-menu,
+      .site-header:hover {
+        background: var(--white);
+        border-bottom: 1px solid #eee;
+      }
+      .header-hover-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        color: var(--black);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .site-header:hover .header-hover-content {
+        max-height: 450px;
+      }
+      .site-header.hide {
+        transform: translateY(-100%);
+      }
+      .site-header.scrolled .brand,
+      .site-header:hover .brand,
+      .site-header.active-menu .brand {
+        color: var(--black);
+      }
+      .site-header.scrolled .nav-menu a,
+      .site-header:hover .nav-menu a {
+        color: var(--black);
+      }
+      .site-header.scrolled .line,
+      .site-header:hover .line {
+        background: var(--black);
+      }
+      .header-inner {
+        max-width: 1400px;
+        margin: auto;
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        font-family: 'Playfair Display', serif;
+        font-size: 16px;
+        letter-spacing: 5px;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: var(--transition);
+      }
+      .nav-menu {
+        display: flex;
+        gap: 35px;
+      }
+      .nav-menu a {
+        text-decoration: none;
+        color: var(--white);
+        font-size: 14px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        font-weight: 200;
+        transition: opacity 0.3s ease;
+      }
+      .nav-menu a:hover {
+        opacity: 0.4;
+      }
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        z-index: 2100;
+      }
+      .line {
+        width: 24px;
+        height: 1px;
+        background: var(--white);
+        transition: var(--transition);
+      }
+      .hover-box {
+        max-width: 1100px;
+        margin: auto;
+        padding: 60px 40px;
+      }
+      .hover-grid {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      #hover-img-container {
+        width: 100%;
+        height: 250px;
+        background: #f9f9f9;
+        overflow: hidden;
+      }
+      #hover-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: 1s ease;
+      }
+      .category-label {
+        font-size: 9px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--gray);
+        display: block;
+        margin-bottom: 15px;
+      }
+      #hover-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 38px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        transition: opacity 0.3s;
+      }
+      #hover-desc {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #444;
+        max-width: 500px;
+        font-weight: 300;
+        transition: opacity 0.3s;
+      }
+      @media (max-width: 1024px) {
+        .brand {
+          margin-left: -18px;
+        }
+        .header-hover-content {
+          display: none;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        .nav-menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 100%;
+          height: 100vh;
+          background: var(--white);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 40px;
+          transition: var(--transition);
+        }
+        .nav-menu.active {
+          right: 0;
+        }
+        .nav-menu a {
+          color: var(--black);
+          font-size: 18px;
+          letter-spacing: 5px;
+        }
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #000;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        box-sizing: border-box;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 400;
+        font-family: 'Playfair Display', serif;
+      }
+      .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+      }
+      .hero {
+        margin-top: 15vh;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .hero h1 {
+        text-align: left;
+        font-size: 5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        text-align: left;
+        opacity: 0.7;
+        margin-top: 10px;
+      }
+      .hero h2 {
+        text-align: left;
+      }
+      .btn-resume {
+        margin-top: 18px;
+        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        background: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 15px 40px;
+        transition: all 0.4s ease;
+        text-decoration: none;
+      }
+      .btn-content {
+        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        background: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 15px 40px;
+        transition: all 0.4s ease;
+        text-decoration: none;
+      }
+      .btn-contact {
+        text-decoration: none;
+        width: 25%;
+        display: flex;
+        margin-top: 20px;
+        padding: 12px 24px;
+        background: #fff;
+        color: #000;
+        border: none;
+        cursor: pointer;
+      }
+      .section {
+        padding: 70px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+      .about-wrapper {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+      .about-img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border: 2px solid #fff;
+      }
+      .about-text {
+        flex: 1;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .card {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: 0.3s;
+      }
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-content {
+        padding: 20px;
+      }
+      .card:hover {
+        background: #fff;
+        color: #000;
+      }
+      .timeline {
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        padding-left: 20px;
+      }
+      .timeline-item {
+        margin-bottom: 25px;
+      }
+      ul {
+        list-style: none;
+      }
+      ul li {
+        margin-bottom: 6px;
+      }
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .skill {
+        border: 1px solid #fff;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+      @media (max-width: 768px) {
+        .section-title {
+          text-align: center;
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .about-wrapper {
+          flex-direction: column;
+          text-align: center;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .intro-contact-grid {
+          flex-direction: column;
+          gap: 30px;
+          align-items: flex-start;
+          margin-top: 40px;
+        }
+        .contact-item .value {
+          font-size: 13px;
+        }
+      }
+      .section-projects {
+        background: #000;
+        padding: 100px 0;
+        color: #fff;
+      }
+      .rl-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 80px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto 150px auto;
+        padding: 0 40px;
+      }
+      .rl-grid.reversed {
+        grid-template-columns: 0.8fr 1.2fr;
+      }
+      .rl-image-box {
+        position: relative;
+      }
+      .slider-wrapper {
+        overflow: hidden;
+        background: #111;
+      }
+      .main-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: grayscale(20%);
+        transition: 0.8s ease;
+      }
+      .main-image img:hover {
+        transform: scale(1.05);
+        filter: grayscale(0%);
+      }
+      .floating-caption {
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        background: #fff;
+        color: #000;
+        padding: 10px 20px;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .floating-caption.right {
+        left: auto;
+        right: -20px;
+      }
+      .rl-label {
+        font-size: 0.75rem;
+        letter-spacing: 4px;
+        color: #888;
+        text-transform: uppercase;
+      }
+      .rl-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin: 20px 0;
+        font-weight: 400;
+      }
+      .rl-desc {
+        font-size: 1rem;
+        color: #aaa;
+        margin-bottom: 30px;
+        font-weight: 300;
+      }
+      .rl-details ul {
+        list-style: none;
+        margin-bottom: 40px;
+      }
+      .rl-details li {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        color: #fff;
+        border-left: 1px solid #fff;
+        padding-left: 15px;
+      }
+      .rl-btn {
+        display: inline-block;
+        padding: 15px 40px;
+        border: 1px solid #fff;
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        transition: 0.4s;
+      }
+      .rl-btn:hover {
+        background: #fff;
+        color: #000;
+      }
+      .rl-divider {
+        width: 100px;
+        margin: 100px auto;
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      @media (max-width: 992px) {
+        .rl-grid,
+        .rl-grid.reversed {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          text-align: center;
+        }
+        .rl-title {
+          font-size: 2.5rem;
+        }
+        .rl-details li {
+          border-left: none;
+          padding-left: 0;
+        }
+        .floating-caption {
+          position: relative;
+          bottom: 0;
+          left: 0;
+          margin-top: 10px;
+          width: 100%;
+        }
+      }
+      .intro-button {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .intro-contact-grid {
+        display: flex;
+        gap: 60px;
+        margin-top: 60px;
+        justify-content: flex-start;
+      }
+      .contact-item {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: transform 0.3s ease;
+      }
+      .contact-item .label {
+        font-family: 'Inter', sans-serif;
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #666;
+        font-weight: 600;
+      }
+      .contact-item .value {
+        font-family: 'Playfair Display', serif;
+        font-size: 14px;
+        color: #ffffff;
+        letter-spacing: 1px;
+        position: relative;
+        padding-bottom: 5px;
+      }
+      .contact-item .value::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #ffffff;
+        transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .contact-item:hover .value::after {
+        width: 100%;
+      }
+      .contact-item:hover {
+        transform: translateY(-3px);
+      }
+      .skills-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-top: 20px;
+      }
+      .skill-category h3 {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 3px;
+        margin-bottom: 25px;
+        color: #888;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+      }
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .skill {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 8px 18px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s;
+        font-family: 'Inter', sans-serif;
+      }
+      .skill:hover {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+      }
+      @media (max-width: 768px) {
+        .skills-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .contact-header {
+          margin-bottom: 50px;
+        }
+        .contact-title {
+          font-size: 42px;
+        }
+        .contact-link {
+          font-size: 16px;
+          word-break: break-all;
+        }
+        .section-contact {
+          padding: 60px 25px;
+        }
+        .footer-main-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-bar {
+          flex-direction: column;
+          gap: 30px;
+          text-align: center;
+        }
+        .site-footer {
+          padding: 60px 25px 40px 25px;
+        }
+      }
+      .contact-intro:hover {
+        color: #0026ff;
+      }
+      .section-contact {
+        padding: 120px 40px;
+        background-color: #ffffff;
+        color: #000000;
+      }
+      .contact-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .contact-header {
+        margin-bottom: 80px;
+      }
+      .contact-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(40px, 6vw, 80px);
+        font-weight: 400;
+        line-height: 1.1;
+        margin-top: 20px;
+        letter-spacing: -1px;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        border-top: 1px solid #eee;
+        padding-top: 60px;
+      }
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .contact-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #888;
+      }
+      .contact-link {
+        font-size: 18px;
+        color: #000;
+        text-decoration: none;
+        font-weight: 300;
+        transition: all 0.3s ease;
+        display: inline-block;
+        width: fit-content;
+      }
+      .contact-link .arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+        font-size: 14px;
+        margin-left: 5px;
+      }
+      .contact-link:hover {
+        color: #888;
+      }
+      .contact-link:hover .arrow {
+        transform: translate(3px, -3px);
+      }
+      @media (max-width: 1024px) {
+        .contact-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 60px 40px;
+        }
+        .section-contact {
+          padding: 80px 40px;
+        }
+        .footer-main-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 60px 40px;
+        }
+      }
+      .site-footer {
+        margin-bottom: 80px;
+        background-color: #000;
+        color: #fff;
+        padding: clamp(60px, 8vw, 100px) clamp(20px, 4vw, 40px) 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .footer-main-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: clamp(30px, 5vw, 60px);
+        padding-bottom: clamp(50px, 6vw, 80px);
+      }
+      .footer-brand {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(22px, 2.5vw, 28px);
+        letter-spacing: clamp(3px, 0.5vw, 6px);
+        margin-bottom: 25px;
+        font-weight: 300;
+      }
+      .footer-bio {
+        font-size: clamp(13px, 1.4vw, 14px);
+        line-height: 1.8;
+        color: #888;
+        max-width: 350px;
+        margin-bottom: 30px;
+        font-weight: 300;
+      }
+      .footer-socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .social-link {
+        color: #fff;
+        text-decoration: none;
+        font-size: 11px;
+        letter-spacing: 2px;
+        opacity: 0.5;
+        transition: 0.3s;
+      }
+      .social-link:hover {
+        opacity: 1;
+      }
+      .footer-label {
+        display: block;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: #444;
+        margin-bottom: 25px;
+      }
+      .footer-list {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-list li {
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 12px;
+        font-weight: 300;
+      }
+      .footer-list a {
+        color: inherit;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .footer-list a:hover {
+        color: #fff;
+        padding-left: 5px;
+      }
+      .footer-info {
+        font-size: 13px;
+        color: #888;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      .footer-cta {
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        font-size: 13px;
+        margin-top: 10px;
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+        transition: 0.3s;
+      }
+      .footer-cta:hover {
+        border-color: #fff;
+      }
+      .footer-bar {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: #444;
+      }
+      .bar-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .bar-link {
+        color: inherit;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .bar-link:hover {
+        color: #888;
+      }
+      .btn-top {
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 10px 14px;
+        border: 1px solid #222;
+        transition: 0.3s;
+      }
+      .btn-top:hover {
+        background: #fff;
+        color: #000;
+      }
+      @media (max-width: 992px) {
+        .footer-main-grid {
+          grid-template-columns: 1.5fr 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .footer-main-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-bio {
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 480px) {
+        .site-footer {
+          padding: 60px 20px 30px;
+        }
+        .footer-main-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .footer-label {
+          margin-bottom: 15px;
+        }
+        .footer-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .bar-right {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .btn-top {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .fm-wrapper {
+        position: fixed;
+        bottom: max(20px, env(safe-area-inset-bottom));
+        right: max(20px, env(safe-area-inset-right));
+        display: flex;
+        gap: 10px;
+        z-index: 9999;
+      }
+      .fm-btn {
+        font-family: 'Playfair Display', serif;
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-size: 24px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      .fm-btn.dark {
+        background: black;
+        color: white;
+      }
+      .fm-btn.light {
+        background: #f1f1f1;
+        color: black;
+      }
+      @media (hover: hover) {
+        .fm-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+      }
+      .fm-box {
+        position: fixed;
+        bottom: calc(80px + env(safe-area-inset-bottom));
+        right: max(20px, env(safe-area-inset-right));
+        width: min(90vw, 360px);
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        transition: all 0.25s ease;
+        z-index: 9999;
+      }
+      .fm-box.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .fm-header {
+        background: black;
+        color: white;
+        padding: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+      }
+      .fm-box form {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+      }
+      .fm-row {
+        display: flex;
+        gap: 10px;
+      }
+      .fm-row input {
+        width: 50%;
+      }
+      .fm-box input,
+      .fm-box textarea {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: border 0.2s ease;
+      }
+      .fm-box input:focus,
+      .fm-box textarea:focus {
+        border-color: black;
+      }
+      .fm-box textarea {
+        height: 90px;
+        resize: none;
+      }
+      .fm-box button[type='submit'] {
+        background: black;
+        color: white;
+        border: none;
+        padding: 11px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      @media (hover: hover) {
+        .fm-box button[type='submit']:hover {
+          opacity: 0.85;
+        }
+      }
+      #fm-close {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        font-size: 16px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.25s ease;
+      }
+      @media (hover: hover) {
+        #fm-close:hover {
+          background: rgba(255, 255, 255, 0.25);
+          transform: rotate(90deg);
+        }
+      }
+      @media (max-width: 768px) {
+        .fm-wrapper {
+          gap: 8px;
+        }
+        .fm-btn {
+          padding: 9px 14px;
+        }
+      }
+      @media (max-width: 480px) {
+        .fm-wrapper {
+          flex-direction: column;
+          align-items: flex-end;
+        }
+        .fm-box {
+          width: 92%;
+          right: 4%;
+        }
+        .fm-row {
+          flex-direction: column;
+        }
+        .fm-row input {
+          width: 100%;
+        }
+      }
+      @media (max-width: 360px) {
+        .fm-btn {
+          font-size: 11px;
+          padding: 8px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header show">
+      <div class="header-inner">
+        <div class="brand" data-aos="fade-right">IBNU BATUTAH [PORTOFOLIO]</div>
+        <div class="menu-toggle" id="mobile-toggle">
+          <span class="line"></span><span class="line"></span>
+        </div>
+        <nav class="nav-menu">
+          <a
+            href="#about"
+            data-title="About Me"
+            data-desc="A reflection of professional journey and personal philosophy. | images/profile-3.jpg"
+            >About</a
+          ><a
+            href="#experience"
+            data-title="Professional Path"
+            data-desc="Decades of dedication in development and operations. | images/experience.jpg"
+            >Experience</a
+          ><a
+            href="#project-1"
+            data-title="Digital Craft"
+            data-desc="Showcasing bespoke web solutions and architectural code. | images/crownsy-2.jpg"
+            >Projects</a
+          ><a
+            href="#skills"
+            data-title="Technical Mastery"
+            data-desc="A curated list of operational and digital competencies. | images/skill.jpg"
+            >Skills</a
+          ><a
+            href="#certification"
+            data-title="Authenticated"
+            data-desc="Validated expertise through global industry standards. | images/cloudcomputing.jpg"
+            >Certifications</a
+          >
+        </nav>
+      </div>
+      <div class="header-hover-content">
+        <div class="hover-box">
+          <div class="hover-grid">
+            <div id="hover-img-container">
+              <img
+                id="hover-img"
+                src=""
+                alt="Preview"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  opacity: 0;
+                  transition: opacity 0.3s ease;
+                  filter: grayscale(100%);
+                "
+              />
+            </div>
+            <div class="hover-text-grid">
+              <span class="category-label">Portfolio Insight</span>
+              <h3 id="hover-title">Explore</h3>
+              <p id="hover-desc">
+                Select a category to explore the details of my work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="app">
+      <div id="resume">
+        <section class="hero" id="intro">
+          <div class="container">
+            <p class="fm-btn.light">'OPEN TO WORK'</p>
+            <h1>{{ profile.name }}</h1>
+            <h2>{{ profile.title }}</h2>
+            <p>{{ profile.desc }}</p>
+            <div class="intro-button">
+              <a
+                href="javascript:void(0)"
+                @click.prevent="downloadPDF"
+                class="btn-resume"
+                >Download Resume</a
+              ><a href="#project-1" class="btn-resume">View Project</a>
+            </div>
+            <div
+              class="intro-contact-grid"
+              data-aos="fade-up"
+              data-aos-delay="800"
+            >
+              <a
+                class="contact-item"
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener"
+                ><span class="label">Connect</span
+                ><span class="value">LinkedIn</span></a
+              ><a class="contact-item" href="mailto:ibnubatutah119@gmail.com"
+                ><span class="label">Inquiries</span
+                ><span class="value">Email Me</span></a
+              ><a
+                class="contact-item"
+                href="https://wa.me/6288211532457"
+                target="_blank"
+                rel="noopener"
+                ><span class="label">Direct</span
+                ><span class="value">+62 882 1153 2457</span></a
+              >
+            </div>
+          </div>
+        </section>
+        <section class="section" id="about">
+          <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-wrapper">
+              <img :src="profile.photo" class="about-img" />
+              <div class="about-text"><p>{{ about }}</p></div>
+            </div>
+            <h2 style="margin-top: 24px" class="section-title">Tech Stack</h2>
+            <div class="skills">
+              <div class="skill" v-for="(skill,i) in skills" :key="i">
+                {{ skill }}
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="project-experience">
+          <div class="container">
+            <h2 class="section-title">Project Experience</h2>
+            <h2 style="margin-bottom: 12px">{{ crownsy.title }}</h2>
+            <p style="margin-bottom: 18px">{{ crownsy.desc }}</p>
+            <h2 style="margin-bottom: 12px">{{ rumaprima.title }}</h2>
+            <p>{{ rumaprima.desc }}</p>
+            <div style="margin-top: 18px" class="skills">
+              <a href="#project-1" class="btn-content">Project 1</a
+              ><a href="#project-2" class="btn-content">Project 2</a>
+            </div>
+          </div>
+        </section>
+        <section style="margin-top: -80px" class="section-projects">
+          <div class="rl-grid" id="project-1">
+            <div class="rl-image-box" data-aos="fade-right">
+              <div class="slider-wrapper">
+                <div class="main-image">
+                  <img src="images/index.jpg" alt="Crownsy Index" />
+                </div>
+                <div class="floating-caption">
+                  <span>01 / Technical Excellence</span>
+                </div>
+              </div>
+            </div>
+            <div class="rl-content-box" data-aos="fade-left">
+              <span class="rl-label">[ Featured Project ]</span>
+              <h2 class="rl-title">Crownsy <br />Screen Printing</h2>
+              <p class="rl-desc">
+                A high-end service platform enginered with
+                <strong>PHP Native</strong> and <strong>React JS</strong>.
+                Focusing on seamless product cataloging and a responsive
+                interface to elevate the user journey.
+              </p>
+              <div class="rl-details">
+                <ul>
+                  <li>Minimalist Interface</li>
+                  <li>Interactive JS Transitions</li>
+                  <li>Dynamic Order Management</li>
+                </ul>
+              </div>
+              <a href="https://crownsy.store/" class="rl-btn"
+                >Explore Project</a
+              >
+            </div>
+          </div>
+          <hr class="rl-divider" />
+          <div class="rl-grid reversed" id="project-2">
+            <div class="rl-content-box" data-aos="fade-right">
+              <span class="rl-label">[ Architectural Design ]</span>
+              <h2 class="rl-title">Rumaprima.ID <br />Property Agent</h2>
+              <p class="rl-desc">
+                A sophisticated property portal developed using
+                <strong>Vue JS</strong>. Integrating complex mortgage
+                simulations and secure server architecture managed via Rumahweb.
+              </p>
+              <div class="rl-details">
+                <ul>
+                  <li>KPR Mortgage Simulation</li>
+                  <li>Secure Server Architecture</li>
+                  <li>Advanced Filtering System</li>
+                </ul>
+              </div>
+              <a href="https://rumaprima.id/" class="rl-btn">Visit Website</a>
+            </div>
+            <div class="rl-image-box" data-aos="fade-left">
+              <div class="slider-wrapper">
+                <div class="main-image">
+                  <img
+                    src="images/rumaprima-index-1.jpg"
+                    alt="Rumaprima Index"
+                  />
+                </div>
+                <div class="floating-caption right">
+                  <span>02 / Digital Architecture</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          style="margin-top: -150px"
+          class="section"
+          id="work-experience"
+        >
+          <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <h2>{{ admin.title }}</h2>
+            <h3 style="margin-bottom: 4px">{{ admin.date }}</h3>
+            <p>{{ admin.desc }}</p>
+            <br />
+            <h2>{{ warehouse.title }}</h2>
+            <h3 style="margin-bottom: 4px">{{ admin.date }}</h3>
+            <p>{{ warehouse.desc }}</p>
+          </div>
+        </section>
+        <section class="section" id="skills">
+          <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+              Professional Skills
+            </h2>
+            <div class="skills-container">
+              <div
+                class="skill-category"
+                data-aos="fade-right"
+                data-aos-delay="100"
+              >
+                <h3>Administrative Precision</h3>
+                <div class="skills">
+                  <div class="skill" v-for="s in adminSkills" :key="s">
+                    {{ s }}
+                  </div>
+                </div>
+              </div>
+              <div
+                class="skill-category"
+                data-aos="fade-left"
+                data-aos-delay="200"
+              >
+                <h3>Operational & Logistics</h3>
+                <div class="skills">
+                  <div class="skill" v-for="s in warehouseSkills" :key="s">
+                    {{ s }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="education">
+          <div class="container">
+            <h2 class="section-title">Education</h2>
+            <h2>{{ education }}</h2>
+            <p>{{ college }}</p>
+            <br />
+            <h2>{{ organization }}</h2>
+            <p>{{ desc }}</p>
+          </div>
+        </section>
+        <section class="section" id="certification">
+          <div class="container">
+            <h2 class="section-title">Certification</h2>
+            <ul>
+              <li v-for="(cert,i) in certifications" :key="i">{{ cert }}</li>
+            </ul>
+          </div>
+        </section>
+        <section class="section-contact" id="contact">
+          <div class="contact-container">
+            <div class="contact-header" data-aos="fade-up">
+              <span class="category-label">Get in Touch</span>
+              <h2 class="contact-title">Let’s start a <br />conversation.</h2>
+            </div>
+            <div class="contact-grid">
+              <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
+                <span class="contact-label">LinkedIn</span
+                ><a
+                  href="https://www.linkedin.com/in/ibnubatutah/"
+                  class="contact-link"
+                  target="_blank"
+                  >Ibnu Batutah <span class="arrow">↗</span></a
+                >
+              </div>
+              <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+                <span class="contact-label">Email</span
+                ><a href="mailto:ibnubatutah119@gmail.com" class="contact-link"
+                  >ibnubatutah119@gmail.com <span class="arrow">↗</span></a
+                >
+              </div>
+              <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+                <span class="contact-label">Phone / WhatsApp</span
+                ><a
+                  href="https://wa.me/6288211532457"
+                  target="_blank"
+                  class="contact-link"
+                  >+62 882 1153 2457 <span class="arrow">↗</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-main-grid">
+            <div class="footer-col-large" data-aos="fade-up">
+              <div class="footer-brand">IBNU BATUTAH</div>
+              <p class="footer-bio">
+                Membangun solusi digital melalui pendekatan arsitektur kode yang
+                bersih dan desain yang fungsional. Berfokus pada skalabilitas
+                dan pengalaman pengguna yang bermakna.
+              </p>
+              <div class="footer-socials">
+                <a
+                  href="https://www.linkedin.com/in/ibnubatutah/"
+                  class="social-link"
+                  >LinkedIn</a
+                ><a href="mailto:ibnubatutah119@gmail.com" class="social-link"
+                  >Email</a
+                ><a href="https://wa.me/6288211532457" class="social-link"
+                  >Whatsapp</a
+                >
+              </div>
+            </div>
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+              <span class="footer-label">Expertise</span>
+              <ul class="footer-list">
+                <li>Fullstack Web Development</li>
+                <li>Backend Development (PHP Native)</li>
+                <li>Frontend Development (React JS)</li>
+                <li>UI/UX Implementation</li>
+                <li>Responsive UI/UX Design</li>
+                <li>System & Performance Optimization</li>
+              </ul>
+            </div>
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+              <span class="footer-label">Explore</span>
+              <ul class="footer-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#project-1">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+              <span class="footer-label">Location</span>
+              <p class="footer-info">Jakarta, Indonesia</p>
+              <p class="footer-info">
+                Available for freelance <br />
+                worldwide.
+              </p>
+              <a href="mailto:ibnubatutah119@gmail.com" class="footer-cta"
+                >Work with me ↗</a
+              >
+            </div>
+          </div>
+          <div class="footer-bar">
+            <div class="bar-left">
+              <span>© 2026 IBNU BATUTAH. MADE WITH PRECISION.</span>
+            </div>
+            <div class="bar-right">
+              <a href="#" class="bar-link">Privacy Policy</a
+              ><a href="#" class="bar-link">Terms of Service</a
+              ><button
+                onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+                class="btn-top"
+              >
+                TOP ↑
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="fm-wrapper">
+        <button type="button" id="fm-open" class="fm-btn dark">Message</button
+        ><a
+          href="https://wa.me/6288211532457"
+          target="_blank"
+          rel="noopener"
+          class="fm-btn light"
+          >WhatsApp</a
+        >
+      </div>
+      <div id="fm-box" class="fm-box" aria-hidden="true">
+        <div class="fm-header">
+          <span>Send Message</span
+          ><button type="button" id="fm-close" aria-label="Close">
+            &times;
+          </button>
+        </div>
+        <form id="fm-form" novalidate>
+          <div class="fm-row">
+            <div class="fm-field">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Nama"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="fm-field">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+                autocomplete="email"
+              />
+            </div>
+          </div>
+          <div class="fm-field">
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tulis pesan..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="fm-submit-btn">Kirim</button>
+          <p id="fm-status" aria-live="polite" style="display: none"></p>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init('XLZ3NaV3ump41I2t-');
+      })();
+      document.addEventListener('DOMContentLoaded', function () {
+        const o = document.getElementById('fm-open'),
+          c = document.getElementById('fm-close'),
+          b = document.getElementById('fm-box'),
+          f = document.getElementById('fm-form'),
+          s = document.getElementById('fm-status');
+        if (!f || !b) return;
+        const l = () => {
+          (b.classList.remove('active'), b.setAttribute('aria-hidden', 'true'));
+        };
+        (o?.addEventListener('click', (e) => {
+          (e.stopPropagation(),
+            b.classList.add('active'),
+            b.setAttribute('aria-hidden', 'false'));
+        }),
+          c?.addEventListener('click', (e) => {
+            (e.stopPropagation(), l());
+          }),
+          document.addEventListener('click', (e) => {
+            b.contains(e.target) || o.contains(e.target) || l();
+          }),
+          document.addEventListener('keydown', (e) => {
+            'Escape' === e.key && l();
+          }),
+          f.addEventListener('submit', function (e) {
+            (e.preventDefault(),
+              (s.style.display = 'block'),
+              (s.innerText = 'Mengirim...'),
+              (s.style.color = '#aaa'),
+              emailjs
+                .sendForm(
+                  'service_9xsv4bf',
+                  'template_9z0l57m',
+                  this,
+                  'XLZ3NaV3ump41I2t-',
+                )
+                .then(() => {
+                  ((s.innerText = 'Pesan berhasil dikirim!'),
+                    (s.style.color = 'lightgreen'),
+                    f.reset(),
+                    setTimeout(() => {
+                      (l(), (s.style.display = 'none'));
+                    }, 2000));
+                })
+                .catch((e) => {
+                  (console.error('EmailJS Error:', e),
+                    (s.innerText = 'Gagal mengirim!'),
+                    (s.style.color = 'red'));
+                }));
+          }));
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const e = document.querySelector('.site-header'),
+          t = document.querySelector('.nav-menu'),
+          n = document.getElementById('mobile-toggle'),
+          o = document.querySelectorAll('.nav-menu a'),
+          r = document.getElementById('hover-title'),
+          i = document.getElementById('hover-desc'),
+          a = document.getElementById('hover-img'),
+          c = 'Explore',
+          s = 'Select a category to explore the details of my work.',
+          d = 'images/profile-3.jpg';
+        function l() {
+          ((r.innerText = c),
+            (i.innerText = s),
+            (a.src = d),
+            (a.style.opacity = '1'));
+        }
+        (l(),
+          window.innerWidth > 1024 &&
+            (o.forEach((e) => {
+              e.addEventListener('mouseenter', () => {
+                const t = e.getAttribute('data-title'),
+                  n = e.getAttribute('data-desc').split('|'),
+                  o = n[0].trim(),
+                  c = n[1] ? n[1].trim() : '';
+                ((r.style.opacity = '0'),
+                  (i.style.opacity = '0'),
+                  (a.style.opacity = '0'),
+                  setTimeout(() => {
+                    ((r.innerText = t),
+                      (i.innerText = o),
+                      c &&
+                        ((a.src = c),
+                        (a.onload = () => {
+                          a.style.opacity = '1';
+                        })),
+                      (r.style.opacity = '1'),
+                      (i.style.opacity = '1'));
+                  }, 150));
+              });
+            }),
+            e.addEventListener('mouseleave', () => {
+              l();
+            })),
+          n.addEventListener('click', () => {
+            (t.classList.toggle('active'), e.classList.toggle('active-menu'));
+          }));
+        let u = 0;
+        window.addEventListener('scroll', () => {
+          const t = window.pageYOffset;
+          (t > 50
+            ? e.classList.add('scrolled')
+            : e.classList.remove('scrolled'),
+            t > u && t > 100
+              ? e.classList.add('hide')
+              : e.classList.remove('hide'),
+            (u = t));
+        });
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.slider').forEach((e) => {
+          const t = e.querySelectorAll('.slide');
+          if (t.length < 3) return;
+          let r = [0, 1, 2],
+            n = 3;
+          const o = () => {
+            (t.forEach((e) => e.classList.remove('pos1', 'pos2', 'pos3')),
+              t[r[0]].classList.add('pos1'),
+              t[r[1]].classList.add('pos2'),
+              t[r[2]].classList.add('pos3'));
+          };
+          (setInterval(() => {
+            const t = e.querySelector('.pos1 .countdown');
+            (t && (t.innerText = n),
+              n--,
+              n < 0 && (r.push(r.shift()), o(), (n = 3)));
+          }, 1e3),
+            o());
+        });
+      });
+    </script>
+    <script>
+      const { createApp } = Vue;
+      createApp({
+        data() {
+          return {
+            linkedin: 'LinkedIn',
+            email: 'Email',
+            phone: 'Phone/Whatsapp',
+            profile: {
+              name: 'Hello I Am Ibnu',
+              title: 'Fullstack Web Developer',
+              desc: 'I build efficient web applications while leveraging my experience in administration and warehouse operations to improve data accuracy and workflow. My expertise spans from back-end coding to processing and monitoring hosting and domain dashboards, ensuring business efficiency through reliable and well-maintained digital solutions.',
+              photo: 'images/ganteng-2.jpg',
+            },
+            admin: {
+              title: 'Admin Support Internship at Batik Dita Cirebon',
+              desc: 'Manage sales administration and product inventory accurately, including handling customer orders, coordinating deliveries with expeditions, and preparing stock reports to support the smooth daily operations of the store.',
+              date: '2023 February - 2023 March',
+            },
+            warehouse: {
+              title: 'Daily Worker at Shopee Express',
+              desc: 'Responsible for managing the flow of goods through the process of sorting, scanning, and physically checking packages according to operational standards to ensure accurate distribution and efficient achievement of daily delivery targets.',
+              date: '2021 January - 2022 October',
+            },
+            crownsy: {
+              title: 'Full Stack Developer of Crownsy Screen Printing Website',
+              desc: 'Successfully built the Crownsy.Store e-commerce ecosystem from coding to full launch. The website was developed with a focus on minimalist aesthetics and high performance, using an optimized HTML/CSS structure and JavaScript functionality for interactive elements such as dynamic sliders and countdowns. The entire system is now running stably on Hostinger, including domain and SSL configuration, to ensure transaction security and maximum access speed for customers of the premium anime collection.',
+            },
+            rumaprima: {
+              title: 'Full Stack Developer of Rumaprima.ID Website',
+              desc: 'Fully responsible for the development of the RumaPrima.id property platform, spanning full-stack development through site publication. This project prioritizes interactive functionality through a JavaScript-based mortgage calculator and a fully responsive design across multiple devices. For operations, I manage domain and hosting integration through Rumahweb services, ensuring consistent uptime and reliable backend performance to handle real-time property search databases.',
+            },
+            about:
+              "I am a results driven Fullstack Web Developer with a unique professional foundation built on administrative precision and logistical excellence. My background in Warehouse Operations at Shopee XPS Express and Administrative Management at Batik Dita has instilled in me a rigorous attention to detail and an obsession with data accuracy qualities that I now translate into clean, efficient code.In my development practice, I specialize in the PHP Native stack combined with modern frameworks like React JS and Vue JS. I don't just build websites, I architect digital solutions designed to solve real-world operational bottlenecks. Whether it's optimizing distribution flows for e-commerce or managing secure server environments for property portals, my goal is to bridge the gap between complex business logic and intuitive user experiences.With a Bachelor's degree in Management from Universitas Budi Luhur and various certifications in SAP Business Network and Data Governance, I bring a strategic mindset to every project. I am passionate about leveraging technology to drive organizational efficiency and building scalable systems that make a measurable impact.",
+            projects: [
+              {
+                title: 'Crownsy Screen Printing',
+                desc: 'PHP Native & React based screen printing service platform with real-time catalog and ordering system.',
+                image: 'images/crownsy-2.jpg',
+                link: 'https://crownsy.store',
+              },
+              {
+                title: 'Rumaprima Property',
+                desc: 'Property website using Vue JS & PHP Native with hosting management and server security.',
+                image: 'images/rumaprima.jpg',
+                link: 'https://rumaprima.id',
+              },
+            ],
+            experience: [
+              {
+                title: 'Fullstack Developer (Freelance / Project Based)',
+                points: [
+                  'Developed websites using PHP Native, React JS, and Vue JS',
+                  'Integrated frontend and backend to improve data flow efficiency',
+                  'Handled maintenance, deployment, and hosting management',
+                  'Optimized performance and user experience (UX)',
+                ],
+              },
+              {
+                title: 'Administrative Intern - Batik Dita Cirebon',
+                points: [
+                  'Managed sales transactions and inventory recording',
+                  'Achieved up to 90% accuracy in data recording',
+                  'Reduced data input errors by up to 80%',
+                  'Prepared inventory reports with up to 95% accuracy',
+                ],
+              },
+              {
+                title: 'Warehouse Staff - Shopee Xpress',
+                points: [
+                  'Handled inbound and outbound processes, including scanning and labeling',
+                  'Managed items weighing up to 45 kg',
+                  'Reduced product damage rates by up to 95%',
+                  'Supported major campaign events (8.8 & 12.12), handling up to 16,000 items',
+                ],
+              },
+            ],
+            education: 'Universitas Budi Luhur',
+            college:
+              "Bachelor's degree from the Faculty of Economics and Business, majoring in Marketing Management with a GPA of 3.40/4.00.",
+            organization: 'Organization',
+            desc: 'Management Student Association, Management projects, campus activities, and social assistance.',
+
+            skills: [
+              'HTML',
+              'CSS3',
+              'Tailwind',
+              'JavaScript',
+              'Vue.JS',
+              'React.JS',
+              'PHP Native',
+              'MAIL.JS',
+              'PHP Mailer',
+              'MySQL',
+              'Git',
+              'HPanel',
+              'CPanel',
+              'Cloud',
+            ],
+            certifications: [
+              'Microsoft Excel - 2024 (Cakap & Kemenko)',
+              'Future Skills Excel & Data - 2024',
+              'MySkills Vlookup & Hlookup - 2023',
+              'SAP Business Network - 2025',
+              'SAP Platform Management - 2025',
+              'Data Governance - 2024 (Telkomsel)',
+              'Data Protection - 2024 (Microsoft)',
+            ],
+            contact: ['Phone', 'LinkedIn', 'Email'],
+            adminSkills: [
+              'Data Entry Accuracy',
+              'Inventory Auditing',
+              'Sales Transaction Management',
+              'Microsoft Excel (VLookup/HLookup)',
+              'Financial Reporting',
+              'Administrative Coordination',
+            ],
+            warehouseSkills: [
+              'Warehouse Management System (WMS)',
+              'Inventory Control',
+              'Receiving & Inbound Processing',
+              'Loss Prevention & Security',
+              'Logistics Optimization',
+              'Quality Assurance (QA)',
+            ],
+          };
+        },
+        methods: {
+          downloadPDF() {
+            const link = document.createElement('a');
+            link.href = 'resume/Ibnubatutah_CV.pdf';
+            link.download = 'Ibnu-Batutah-Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
