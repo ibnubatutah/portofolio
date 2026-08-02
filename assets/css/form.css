@@ -1,0 +1,1689 @@
+/*==================================================
+    CROWNSY QUICK INQUIRY
+==================================================*/
+
+:root{
+
+    --cq-primary:#ffffff;
+    --cq-secondary:#d6d6d6;
+    --cq-dark:#050505;
+    --cq-dark2:#111111;
+    --cq-border:rgba(255,255,255,.08);
+    --cq-hover:#1d1d1d;
+    --cq-accent:#c9a86a;
+    --cq-success:#22c55e;
+    --cq-error:#ef4444;
+
+    --cq-radius:22px;
+    --cq-shadow:0 25px 80px rgba(0,0,0,.55);
+
+    --cq-transition:.35s ease;
+
+    --cq-max-width:1180px;
+
+}
+
+/*========================================*/
+
+.cq-modal *,
+.cq-modal *::before,
+.cq-modal *::after{
+    box-sizing:border-box;
+}
+
+/*========================================
+OPEN BUTTON
+========================================*/
+
+.cq-open-btn{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    border:none;
+    outline:none;
+
+    cursor:pointer;
+
+    background:#000;
+    color:#fff;
+
+    padding:15px 28px;
+
+    border-radius:999px;
+
+    font-size:15px;
+    font-weight:600;
+
+    transition:var(--cq-transition);
+
+}
+
+.cq-open-btn:hover{
+
+    background:#1d1d1d;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.cq-open-btn i{
+
+    font-size:18px;
+
+}
+
+/*========================================
+MODAL
+========================================*/
+
+.cq-modal{
+
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    visibility:hidden;
+    opacity:0;
+    transition:.35s;
+
+}
+
+/* ACTIVE */
+
+.cq-modal.active{
+
+    visibility:visible;
+
+    opacity:1;
+
+}
+
+/*========================================
+OVERLAY
+========================================*/
+
+.cq-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+
+}
+
+/*========================================
+CONTAINER
+========================================*/
+
+.cq-container{
+
+    position:relative;
+
+    width:100%;
+    max-width:980px;
+
+    max-height:88vh;
+
+    display:grid;
+    grid-template-columns:42% 58%;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    box-shadow:0 35px 80px rgba(0,0,0,.35);
+
+    transform:translateY(30px) scale(.96);
+
+    opacity:0;
+
+    transition:.35s ease;
+
+}
+
+.cq-modal.active .cq-container{
+
+    transform:translateY(0) scale(1);
+
+    opacity:1;
+
+}
+
+/*========================================
+LEFT PANEL
+========================================*/
+
+.cq-left{
+
+    min-height:620px;
+
+    padding:55px;
+
+}
+
+.cq-left::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    top:-140px;
+    left:-120px;
+
+}
+
+.cq-left::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.03);
+
+    bottom:-90px;
+    right:-80px;
+
+}
+
+.cq-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.cq-subtitle{
+
+    display:inline-block;
+
+    color:black;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+
+}
+
+.cq-content h2{
+
+    color:#000000;
+
+    font-size:42px;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+.cq-content p{
+
+    color:#000000;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    margin-bottom:40px;
+
+}
+
+/*========================================
+FEATURE LIST
+========================================*/
+
+.cq-features{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.cq-feature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:#000000;
+
+    font-size:15px;
+
+}
+
+.cq-feature i{
+
+    color: black;
+
+    font-size:20px;
+
+}
+
+/*========================================
+RIGHT PANEL
+========================================*/
+
+.cq-right{
+
+    padding:45px;
+
+    max-height:88vh;
+
+    overflow-y:auto;
+
+}
+
+.cq-header{
+
+    margin-bottom:35px;
+
+}
+
+.cq-header span{
+
+    display:inline-block;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#777;
+
+    margin-bottom:10px;
+
+}
+
+.cq-header h3{
+
+    font-size:34px;
+
+    color:#111;
+
+    margin-bottom:15px;
+
+}
+
+.cq-header p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+/*========================================
+CLOSE BUTTON
+========================================*/
+
+.cq-close{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    width:46px;
+    height:46px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    color:#fff;
+
+    z-index:20;
+
+    transition:var(--cq-transition);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.cq-close:hover{
+
+    transform:rotate(90deg);
+
+    background:#fff;
+
+    color:#000;
+
+}
+
+/*==================================================
+    FORM
+==================================================*/
+
+#quickInquiryForm{
+    width:100%;
+}
+
+/*========================================
+FORM GROUP
+========================================*/
+
+.cq-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:22px;
+}
+
+.cq-row{
+    display:grid;
+    grid-template-columns:1fr 180px;
+    gap:20px;
+    margin-bottom:22px;
+}
+
+.cq-group label{
+
+    font-size:14px;
+    font-weight:600;
+
+    color:#222;
+
+    margin-bottom:10px;
+
+}
+
+/*========================================
+INPUT
+========================================*/
+
+.cq-group input,
+.cq-group select,
+.cq-group textarea{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    border:1px solid #d9d9d9;
+
+    border-radius:14px;
+
+    background:#fafafa;
+
+    color:#111;
+
+    font-size:15px;
+
+    transition:.3s ease;
+
+    outline:none;
+
+    font-family:inherit;
+
+}
+
+/*========================================
+PLACEHOLDER
+========================================*/
+
+.cq-group input::placeholder,
+.cq-group textarea::placeholder{
+
+    color:#999;
+
+}
+
+/*========================================
+SELECT
+========================================*/
+
+.cq-group select{
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    cursor:pointer;
+
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5L8 12l6.5-6.5' stroke='%23666' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+
+    background-repeat:no-repeat;
+
+    background-position:right 16px center;
+
+    padding-right:45px;
+
+}
+
+/*========================================
+TEXTAREA
+========================================*/
+
+.cq-group textarea{
+
+    resize:vertical;
+
+    min-height:160px;
+
+}
+
+/*========================================
+FOCUS EFFECT
+========================================*/
+
+.cq-group input:focus,
+.cq-group select:focus,
+.cq-group textarea:focus{
+
+    border-color:var(--cq-accent);
+
+    background:#fff;
+
+    box-shadow:
+        0 0 0 4px rgba(201,168,106,.15);
+
+}
+
+/*========================================
+HOVER
+========================================*/
+
+.cq-group input:hover,
+.cq-group select:hover,
+.cq-group textarea:hover{
+
+    border-color:#bbb;
+
+}
+
+/*========================================
+INVALID
+========================================*/
+
+.cq-group input:invalid:focus,
+.cq-group textarea:invalid:focus{
+
+    border-color:#ef4444;
+
+    box-shadow:
+        0 0 0 4px rgba(239,68,68,.12);
+
+}
+
+/*========================================
+VALID
+========================================*/
+
+.cq-group input:valid,
+.cq-group textarea:valid{
+
+    border-color:#d8d8d8;
+
+}
+
+/*==================================================
+SUBMIT BUTTON
+==================================================*/
+
+.cq-submit{
+
+    position:relative;
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    background:#000;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s ease;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+/* Hover */
+
+.cq-submit:hover{
+
+    background:#1d1d1d;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.18);
+
+}
+
+/* Active */
+
+.cq-submit:active{
+
+    transform:scale(.98);
+
+}
+
+/* Disabled */
+
+.cq-submit:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}
+
+/*========================================
+BUTTON SHINE
+========================================*/
+
+.cq-submit::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transition:.8s;
+
+}
+
+.cq-submit:hover::before{
+
+    left:100%;
+
+}
+
+/*========================================
+BUTTON TEXT
+========================================*/
+
+.cq-btn-text{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/*==================================================
+LOADING
+==================================================*/
+
+.cq-loading{
+
+    display:none;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    border:3px solid rgba(255,255,255,.25);
+
+    border-top-color:#fff;
+
+    animation:cqSpin .7s linear infinite;
+
+}
+
+.cq-submit.loading .cq-loading{
+
+    display:block;
+
+}
+
+.cq-submit.loading .cq-btn-text{
+
+    display:none;
+
+}
+
+@keyframes cqSpin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/*==================================================
+NOTE
+==================================================*/
+
+.cq-note{
+
+    display:block;
+
+    margin-top:18px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    color:#000000;
+
+    line-height:1.6;
+
+}
+
+/*==================================================
+SMALL ANIMATION
+==================================================*/
+
+.cq-group{
+
+    animation:cqFadeUp .5s ease both;
+
+}
+
+.cq-group:nth-child(1){animation-delay:.05s;}
+.cq-group:nth-child(2){animation-delay:.10s;}
+.cq-group:nth-child(3){animation-delay:.15s;}
+.cq-group:nth-child(4){animation-delay:.20s;}
+
+@keyframes cqFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==================================================
+    SUCCESS & ERROR POPUP
+==================================================*/
+
+.cq-result{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+
+    z-index:100000;
+
+    visibility:hidden;
+
+    opacity:0;
+
+    transition:.35s ease;
+
+}
+
+/* ACTIVE */
+
+.cq-result.active{
+
+    visibility:visible;
+
+    opacity:1;
+
+}
+
+/*==================================================
+BOX
+==================================================*/
+
+.cq-result-box{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:430px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+
+    transform:scale(.85);
+
+    transition:.35s ease;
+
+}
+
+.cq-result.active .cq-result-box{
+
+    transform:scale(1);
+
+}
+
+/*==================================================
+ICON
+==================================================*/
+
+.cq-result-box i{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    font-size:48px;
+
+}
+
+/* SUCCESS */
+
+#cqSuccess i{
+
+    color:#22c55e;
+
+    background:rgba(34,197,94,.12);
+
+}
+
+/* ERROR */
+
+#cqError i{
+
+    color:#ef4444;
+
+    background:rgba(239,68,68,.12);
+
+}
+
+/*==================================================
+TITLE
+==================================================*/
+
+.cq-result-box h3{
+
+    font-size:28px;
+
+    color:#111;
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+}
+
+/*==================================================
+TEXT
+==================================================*/
+
+.cq-result-box p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+    margin-bottom:30px;
+
+}
+
+/*==================================================
+BUTTON
+==================================================*/
+
+.cq-result-box button{
+
+    width:100%;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#000;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+}
+
+.cq-result-box button:hover{
+
+    background:#1d1d1d;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.18);
+
+}
+
+.cq-result-box button:active{
+
+    transform:scale(.98);
+
+}
+
+/*========================================
+FLOATING BUTTON
+========================================*/
+
+.cq-open-btn{
+
+    position:fixed;
+
+    left:25px;
+
+    bottom:25px;
+
+    z-index:9998;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:16px 26px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#000;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+    transition:.35s ease;
+
+}
+
+.cq-open-btn:hover{
+
+    transform:translateY(-5px);
+
+    background:#1a1a1a;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+.cq-open-btn i{
+
+    font-size:18px;
+
+}
+
+/* Pulse Animation */
+
+.cq-open-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50px;
+
+    border:2px solid rgba(255,255,255,.4);
+
+    animation:cqPulse 2s infinite;
+
+}
+
+@keyframes cqPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:.8;
+
+    }
+
+    70%{
+
+        transform:scale(1.35);
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        transform:scale(1.35);
+
+        opacity:0;
+
+    }
+
+}
+
+/*==================================================
+ANIMATION
+==================================================*/
+
+@keyframes cqPopup{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.65);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.cq-result.active .cq-result-box{
+
+    animation:cqPopup .45s ease;
+
+}
+
+/*==================================================
+ICON ANIMATION
+==================================================*/
+
+@keyframes cqIcon{
+
+    0%{
+
+        transform:scale(0);
+
+        opacity:0;
+
+    }
+
+    70%{
+
+        transform:scale(1.15);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.cq-result.active i{
+
+    animation:cqIcon .55s ease;
+
+}
+
+/*==================================================
+SHAKE (ERROR)
+==================================================*/
+
+@keyframes cqShake{
+
+    0%{transform:translateX(0);}
+    20%{transform:translateX(-8px);}
+    40%{transform:translateX(8px);}
+    60%{transform:translateX(-6px);}
+    80%{transform:translateX(6px);}
+    100%{transform:translateX(0);}
+
+}
+
+#cqError.active .cq-result-box{
+
+    animation:cqShake .4s ease,
+              cqPopup .45s ease;
+
+}
+
+/*==================================================
+SUCCESS GLOW
+==================================================*/
+
+#cqSuccess .cq-result-box{
+
+    border-top:5px solid #22c55e;
+
+}
+
+/*==================================================
+ERROR GLOW
+==================================================*/
+
+#cqError .cq-result-box{
+
+    border-top:5px solid #ef4444;
+
+}
+
+/*==================================================
+SCROLL LOCK CLASS
+==================================================*/
+
+body.cq-lock{
+
+    overflow:hidden;
+
+}
+
+/*==================================================
+UTILITY
+==================================================*/
+
+.cq-hidden{
+
+    display:none !important;
+
+}
+
+.cq-show{
+
+    display:block !important;
+
+}
+
+/*==================================================
+    RESPONSIVE
+==================================================*/
+
+/*========================================
+1600px
+========================================*/
+
+@media (max-width:1600px){
+
+    .cq-container{
+        max-width:1100px;
+    }
+
+}
+
+/*========================================
+1400px
+========================================*/
+
+@media (max-width:1400px){
+
+    .cq-container{
+
+        max-width:1020px;
+
+    }
+
+    .cq-left{
+
+        padding:55px;
+
+    }
+
+    .cq-right{
+
+        padding:55px;
+
+    }
+
+    .cq-content h2{
+
+        font-size:38px;
+
+    }
+
+}
+
+/*========================================
+1200px
+========================================*/
+
+@media (max-width:1200px){
+
+    .cq-container{
+
+        max-width:960px;
+
+    }
+
+    .cq-left{
+
+        padding:45px;
+
+    }
+
+    .cq-right{
+
+        padding:45px;
+
+    }
+
+    .cq-content h2{
+
+        font-size:34px;
+
+    }
+
+    .cq-header h3{
+
+        font-size:30px;
+
+    }
+
+}
+
+/*========================================
+992px
+========================================*/
+
+@media (max-width:992px){
+
+    .cq-container{
+
+        max-width:700px;
+
+        grid-template-columns:1fr;
+
+        max-height:90vh;
+
+    }
+
+    .cq-left{
+
+        min-height:220px;
+
+    }
+
+}
+
+/*========================================
+768px
+========================================*/
+
+@media (max-width:768px){
+
+    .cq-modal{
+
+        padding:15px;
+
+    }
+
+    .cq-container{
+
+        width:100%;
+
+        max-width:520px;
+
+        max-height:92vh;
+
+        border-radius:20px;
+
+    }
+
+    .cq-open-btn{
+
+        right:18px;
+
+        bottom:18px;
+
+        padding:15px 22px;
+
+        font-size:14px;
+
+    }
+
+}
+
+/*========================================
+576px
+========================================*/
+
+@media (max-width:576px){
+
+    .cq-container{
+
+        max-width:100%;
+
+        max-height:95vh;
+
+        border-radius:18px;
+
+    }
+
+    .cq-left{
+
+        display:none;
+
+    }
+
+}
+
+/*========================================
+480px
+========================================*/
+
+@media (max-width:480px){
+
+    .cq-close{
+
+        width:42px;
+
+        height:42px;
+
+        top:15px;
+
+        right:15px;
+
+    }
+
+    .cq-left{
+
+        min-height:180px;
+
+    }
+
+    .cq-content h2{
+
+        font-size:22px;
+
+    }
+
+    .cq-subtitle{
+
+        font-size:12px;
+
+    }
+
+    .cq-header span{
+
+        font-size:12px;
+
+    }
+
+    .cq-header h3{
+
+        font-size:24px;
+
+    }
+
+    .cq-open-btn{
+
+        right:15px;
+
+        bottom:15px;
+
+        width:58px;
+
+        height:58px;
+
+        padding:0;
+
+        border-radius:50%;
+
+    }
+
+    .cq-open-btn span{
+
+        display:none;
+
+    }
+
+    .cq-open-btn i{
+
+        font-size:22px;
+
+        margin:0;
+
+    }
+
+    /* Hilangkan efek pulse agar lebih rapi di layar kecil */
+    .cq-open-btn::after{
+
+        border-radius:50%;
+
+    }
+
+}
+
+/*========================================
+390px
+========================================*/
+
+@media (max-width:390px){
+
+    .cq-left{
+
+        padding:20px;
+
+    }
+
+    .cq-right{
+
+        padding:20px;
+
+    }
+
+    .cq-content h2{
+
+        font-size:20px;
+
+    }
+
+    .cq-content p{
+
+        font-size:13px;
+
+    }
+
+    .cq-group{
+
+        margin-bottom:18px;
+
+    }
+
+}
+
+/*========================================
+375px
+========================================*/
+
+@media (max-width:375px){
+
+    .cq-header{
+
+        margin-bottom:25px;
+
+    }
+
+    .cq-header h3{
+
+        font-size:22px;
+
+    }
+
+    .cq-group label{
+
+        font-size:13px;
+
+    }
+
+    .cq-group input,
+    .cq-group textarea,
+    .cq-group select{
+
+        font-size:13px;
+
+    }
+
+}
+
+/*========================================
+360px
+========================================*/
+
+@media (max-width:360px){
+
+    .cq-left{
+
+        display:none;
+
+    }
+
+    .cq-container{
+
+        height:100vh;
+
+    }
+
+    .cq-right{
+
+        justify-content:flex-start;
+
+        padding-top:70px;
+
+    }
+
+}
+
+/*========================================
+320px
+========================================*/
+
+@media (max-width:320px){
+
+    .cq-right{
+
+        padding:16px;
+
+        padding-top:65px;
+
+    }
+
+    .cq-header h3{
+
+        font-size:20px;
+
+    }
+
+    .cq-group input,
+    .cq-group textarea,
+    .cq-group select{
+
+        padding:12px;
+
+    }
+
+    .cq-submit{
+
+        height:50px;
+
+        font-size:14px;
+
+    }
+
+}
+
+/*==================================================
+CUSTOM SCROLLBAR
+==================================================*/
+
+.cq-right::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.cq-right::-webkit-scrollbar-track{
+
+    background:#f3f3f3;
+
+}
+
+.cq-right::-webkit-scrollbar-thumb{
+
+    background:#bcbcbc;
+
+    border-radius:999px;
+
+}
+
+.cq-right::-webkit-scrollbar-thumb:hover{
+
+    background:#888;
+
+}
+
+/* Firefox */
+
+.cq-right{
+
+    scrollbar-width:thin;
+
+    scrollbar-color:#bcbcbc #f3f3f3;
+
+}
+
+/*==================================================
+REDUCE MOTION
+==================================================*/
+
+@media (prefers-reduced-motion: reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
