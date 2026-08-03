@@ -379,7 +379,7 @@ CLOSE BUTTON
 
     background:rgba(255,255,255,.15);
 
-    color:#fff;
+    color: black;
 
     z-index:20;
 
@@ -393,9 +393,9 @@ CLOSE BUTTON
 
     transform:rotate(90deg);
 
-    background:#fff;
+    background: black;
 
-    color:#000;
+    color: white;
 
 }
 
