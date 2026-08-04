@@ -1,17 +1,25 @@
-// Membuat dan memuat gtag.js
+/* ==================================================
+   Google Analytics 4
+================================================== */
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+  window.dataLayer.push(arguments);
+}
+
+window.gtag = gtag;
+
 const gaScript = document.createElement("script");
 gaScript.async = true;
 gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-517B7PSJ0M";
-document.head.appendChild(gaScript);
 
-// Konfigurasi Google Analytics
-window.dataLayer = window.dataLayer || [];
-window.gtag = function () {
-  dataLayer.push(arguments);
+gaScript.onload = function () {
+  gtag("js", new Date());
+  gtag("config", "G-517B7PSJ0M");
 };
 
-gtag("js", new Date());
-gtag("config", "G-517B7PSJ0M");
+document.head.appendChild(gaScript);
 
 /**
 * Template Name: Personal
@@ -89,19 +97,24 @@ gtag("config", "G-517B7PSJ0M");
    * Scroll top button
    */
   let scrollTop = document.querySelector('.scroll-top');
-
+  
   function toggleScrollTop() {
     if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+      window.scrollY > 100
+        ? scrollTop.classList.add('active')
+        : scrollTop.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
