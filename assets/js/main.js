@@ -1,3 +1,18 @@
+// Membuat dan memuat gtag.js
+const gaScript = document.createElement("script");
+gaScript.async = true;
+gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-517B7PSJ0M";
+document.head.appendChild(gaScript);
+
+// Konfigurasi Google Analytics
+window.dataLayer = window.dataLayer || [];
+window.gtag = function () {
+  dataLayer.push(arguments);
+};
+
+gtag("js", new Date());
+gtag("config", "G-517B7PSJ0M");
+
 /**
 * Template Name: Personal
 * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
